@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Users, HeartHandshake, Building, X, Send, CheckCircle2, Sparkles } from 'lucide-react';
+import { Users, HeartHandshake, Building, X, Send, CheckCircle2, Sparkles, Loader2 } from 'lucide-react';
+import { dbService } from '../services/db';
+import type { UserRoleCategory } from '../services/types';
 
 interface JoinSectionProps {
   isOpenModal: boolean;
@@ -19,22 +21,39 @@ export const JoinSection: React.FC<JoinSectionProps> = ({
     name: '',
     email: '',
     phone: '',
-    role: preselectedRole || 'Parent',
+    role: (preselectedRole as UserRoleCategory) || 'Parent',
     message: '',
   });
 
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     if (preselectedRole) {
-      setFormData((prev) => ({ ...prev, role: preselectedRole }));
+      setFormData((prev) => ({ ...prev, role: preselectedRole as UserRoleCategory }));
     }
   }, [preselectedRole]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!formData.name || !formData.email || !formData.phone) return;
-    setSubmitted(true);
+    setIsSubmitting(true);
+
+    try {
+      await dbService.createSubmission({
+        full_name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        role: formData.role as UserRoleCategory,
+        category: `${formData.role} Engagement`,
+        message: formData.message || 'Expressed interest in joining Offscreen Hub movement.',
+      });
+      setSubmitted(true);
+    } catch (err) {
+      console.error('Failed to submit form', err);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleReset = () => {
@@ -230,7 +249,7 @@ export const JoinSection: React.FC<JoinSectionProps> = ({
                     </label>
                     <select
                       value={formData.role}
-                      onChange={(e) => setFormData({ ...formData, role: e.target.value })}
+                      onChange={(e) => setFormData({ ...formData, role: e.target.value as UserRoleCategory })}
                       className="w-full px-4 py-3 rounded-xl bg-brand-dark border border-white/10 text-brand-ivory focus:border-brand-gold focus:outline-none text-sm"
                     >
                       <option value="Parent">Parent</option>
@@ -257,9 +276,18 @@ export const JoinSection: React.FC<JoinSectionProps> = ({
 
                   <button
                     type="submit"
-                    className="w-full py-4 rounded-full bg-gold-gradient text-brand-dark font-bold text-xs uppercase tracking-wider shadow-glow-gold flex items-center justify-center gap-2 mt-4 hover:scale-[1.02] transition-transform"
+                    disabled={isSubmitting}
+                    className="w-full py-4 rounded-full bg-gold-gradient text-brand-dark font-bold text-xs uppercase tracking-wider shadow-glow-gold flex items-center justify-center gap-2 mt-4 hover:scale-[1.02] transition-transform disabled:opacity-50"
                   >
-                    <Send className="w-4 h-4" /> Join Offscreen Hub
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" /> Submitting...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4" /> Join Offscreen Hub
+                      </>
+                    )}
                   </button>
                 </form>
               ) : (
