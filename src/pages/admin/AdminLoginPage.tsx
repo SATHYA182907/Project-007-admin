@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Navigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Lock, Mail, ArrowRight, AlertCircle, Loader2 } from 'lucide-react';
 import { useAuth } from '../../hooks/useAuth';
@@ -9,14 +9,14 @@ export const AdminLoginPage: React.FC = () => {
   const navigate = useNavigate();
   const { login, isAuthenticated } = useAuth();
 
-  if (isAuthenticated) {
-    navigate('/admin/dashboard', { replace: true });
-  }
-
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  if (isAuthenticated) {
+    return <Navigate to="/admin/dashboard" replace />;
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();

@@ -89,12 +89,6 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal }) => {
               <ArrowUpRight className="w-3.5 h-3.5 text-brand-gold group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
             </span>
           </button>
-          <a
-            href="/admin/login"
-            className="text-[11px] font-mono text-brand-gold/70 hover:text-brand-gold underline transition-colors px-2 py-1"
-          >
-            Admin Portal
-          </a>
         </div>
 
         {/* Mobile Hamburger Toggle */}

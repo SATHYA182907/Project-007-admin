@@ -1,6 +1,9 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './hooks/useAuth';
 
+// Public Portfolio Website
+import { PortfolioPage } from './pages/PortfolioPage';
+
 // Admin Portal Pages & Components
 import { AdminLoginPage } from './pages/admin/AdminLoginPage';
 import { AdminLayout } from './components/admin/AdminLayout';
@@ -20,8 +23,10 @@ export function App() {
     <AuthProvider>
       <BrowserRouter>
         <Routes>
-          {/* Admin Sign In is the default entry point of the project */}
-          <Route path="/" element={<AdminLoginPage />} />
+          {/* Main Website Route */}
+          <Route path="/" element={<PortfolioPage />} />
+
+          {/* Admin Authentication */}
           <Route path="/admin/login" element={<AdminLoginPage />} />
 
           {/* Admin Protected Routes */}
@@ -40,7 +45,7 @@ export function App() {
             <Route path="*" element={<Navigate to="/admin/dashboard" replace />} />
           </Route>
 
-          {/* Catch-all redirect */}
+          {/* Catch-all redirect to home */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </BrowserRouter>
