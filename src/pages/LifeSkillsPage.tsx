@@ -15,16 +15,16 @@ export const LifeSkillsPage: React.FC = () => {
       </div>
 
       {/* Navigation Header */}
-      <header className="relative z-20 w-full max-w-7xl mx-auto px-6 sm:px-8 pt-6 sm:pt-8 flex items-center justify-between">
-        <div className="flex items-center gap-3.5">
-          <div className="w-10 h-10 rounded-full overflow-hidden border border-[#8A80B8]/40 shadow-sm flex items-center justify-center bg-white p-0.5">
+      <header className="relative z-20 w-full max-w-7xl mx-auto px-4 sm:px-8 pt-4 sm:pt-8 flex items-center justify-between">
+        <div className="flex items-center gap-2.5 sm:gap-3.5">
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden border border-[#8A80B8]/40 shadow-sm flex items-center justify-center bg-white p-0.5">
             <img src={logoImg} alt="Offscreen Hub Logo" className="w-full h-full object-cover rounded-full" />
           </div>
           <div>
-            <span className="font-serif text-lg font-bold tracking-wider text-[#14171F] block">
+            <span className="font-serif text-base sm:text-lg font-bold tracking-wider text-[#14171F] block">
               OFFSCREEN HUB
             </span>
-            <span className="text-[10px] uppercase tracking-widest text-[#7C3AED] font-sans font-semibold block">
+            <span className="text-[9px] sm:text-[10px] uppercase tracking-widest text-[#7C3AED] font-sans font-semibold block">
               Life Skills Division
             </span>
           </div>
@@ -33,7 +33,7 @@ export const LifeSkillsPage: React.FC = () => {
         {/* Return to Division Hub */}
         <Link
           to="/"
-          className="inline-flex items-center gap-2 text-xs font-semibold text-[#4B5563] hover:text-[#111827] px-4 py-2 rounded-full bg-white/80 hover:bg-white border border-[#E5E7EB] transition-all shadow-sm"
+          className="inline-flex items-center gap-1.5 sm:gap-2 text-xs font-semibold text-[#4B5563] hover:text-[#111827] px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/80 hover:bg-white border border-[#E5E7EB] transition-all shadow-sm"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
           <span>Return to Hub</span>
@@ -41,14 +41,14 @@ export const LifeSkillsPage: React.FC = () => {
       </header>
 
       {/* Main Life Skills Placeholder & Coming Soon Stage */}
-      <main className="relative z-10 w-full max-w-5xl mx-auto px-6 sm:px-8 py-12 sm:py-16 my-auto">
+      <main className="relative z-10 w-full max-w-5xl mx-auto px-4 sm:px-8 py-8 sm:py-16 my-auto">
         {/* Life Skills Hero Section */}
-        <div className="text-center max-w-2xl mx-auto mb-14">
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#F3F0FF] border border-[#DDD6FE] text-[#7C3AED] text-xs font-semibold uppercase tracking-widest mb-5"
+            className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-[#F3F0FF] border border-[#DDD6FE] text-[#7C3AED] text-[11px] sm:text-xs font-semibold uppercase tracking-widest mb-4 sm:mb-5"
           >
             <Clock className="w-3.5 h-3.5" />
             <span>Division Under Formulation</span>
@@ -58,7 +58,7 @@ export const LifeSkillsPage: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-4xl sm:text-6xl font-serif font-bold text-[#111827] tracking-tight leading-tight mb-4"
+            className="text-3xl sm:text-6xl font-serif font-bold text-[#111827] tracking-tight leading-tight mb-3 sm:mb-4"
           >
             LIFE SKILLS
           </motion.h1>
@@ -67,7 +67,7 @@ export const LifeSkillsPage: React.FC = () => {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-base sm:text-xl text-[#4B5563] font-light leading-relaxed mb-8"
+            className="text-sm sm:text-xl text-[#4B5563] font-light leading-relaxed mb-6 sm:mb-8"
           >
             “Discover opportunities for learning, creativity and personal development.”
           </motion.p>
@@ -77,7 +77,7 @@ export const LifeSkillsPage: React.FC = () => {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="p-8 sm:p-10 rounded-3xl bg-white/80 backdrop-blur-md border border-[#DDD6FE] shadow-[0_20px_50px_rgba(138,128,184,0.12)] text-left"
+            className="p-5 sm:p-10 rounded-2xl sm:rounded-3xl bg-white/80 backdrop-blur-md border border-[#DDD6FE] shadow-[0_20px_50px_rgba(138,128,184,0.12)] text-left"
           >
             <div className="flex items-center gap-3 text-sm font-semibold text-[#7C3AED] uppercase tracking-wider mb-3">
               <Sparkles className="w-4 h-4 text-[#7C3AED]" />

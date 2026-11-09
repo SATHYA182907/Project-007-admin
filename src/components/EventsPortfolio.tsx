@@ -74,17 +74,20 @@ export const EventsPortfolio: React.FC<EventsPortfolioProps> = ({ onSelectEvent 
 
         {/* 8 Official Event Categories Filter Chips */}
         <div className="mb-6">
-          <div className="flex items-center justify-center gap-2 mb-3 text-xs text-brand-mutedIvory font-medium">
-            <Filter className="w-3.5 h-3.5 text-brand-gold" />
-            <span className="uppercase tracking-wider">Filter by Category:</span>
+          <div className="flex items-center justify-between sm:justify-center gap-2 mb-2.5 text-xs text-brand-mutedIvory font-medium">
+            <div className="flex items-center gap-1.5">
+              <Filter className="w-3.5 h-3.5 text-brand-gold" />
+              <span className="uppercase tracking-wider">Filter Category:</span>
+            </div>
+            <span className="text-[10px] text-brand-gold/70 sm:hidden font-mono">Swipe →</span>
           </div>
-          <div className="flex items-center justify-center gap-2 overflow-x-auto pb-2 scrollbar-none">
-            <div className="flex flex-wrap items-center justify-center gap-2 p-1.5 rounded-2xl glass-card border border-white/10 shadow-lg max-w-5xl">
+          <div className="overflow-x-auto pb-2 scrollbar-none -mx-4 px-4 sm:mx-0 sm:px-0">
+            <div className="inline-flex sm:flex sm:flex-wrap items-center sm:justify-center gap-1.5 sm:gap-2 p-1.5 rounded-2xl glass-card border border-white/10 shadow-lg sm:max-w-5xl">
               {categories.map((cat) => (
                 <button
                   key={cat}
                   onClick={() => setActiveCategory(cat)}
-                  className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold uppercase tracking-wider whitespace-nowrap transition-all duration-300 ${
+                  className={`px-3 py-1.5 rounded-xl text-xs font-semibold uppercase tracking-wider whitespace-nowrap transition-all duration-300 ${
                     activeCategory === cat
                       ? 'bg-gold-gradient text-brand-dark shadow-glow-gold'
                       : 'text-brand-mutedIvory hover:text-brand-ivory hover:bg-white/5'
@@ -98,24 +101,26 @@ export const EventsPortfolio: React.FC<EventsPortfolioProps> = ({ onSelectEvent 
         </div>
 
         {/* Target Audience Secondary Filters */}
-        <div className="mb-12">
-          <div className="flex flex-wrap items-center justify-center gap-2">
-            <span className="text-[11px] uppercase tracking-wider text-brand-gold/80 font-mono mr-1">
-              Target Audience:
-            </span>
-            {audiences.map((aud) => (
-              <button
-                key={aud}
-                onClick={() => setActiveAudience(aud)}
-                className={`px-3 py-1 rounded-full text-[11px] font-medium transition-all ${
-                  activeAudience === aud
-                    ? 'bg-white/20 text-brand-ivory border border-brand-gold/50 shadow-sm'
-                    : 'bg-white/5 text-brand-mutedIvory hover:text-brand-ivory border border-white/5'
-                }`}
-              >
-                {aud === 'All' ? 'All Audiences' : aud}
-              </button>
-            ))}
+        <div className="mb-10 sm:mb-12">
+          <div className="overflow-x-auto pb-2 scrollbar-none -mx-4 px-4 sm:mx-0 sm:px-0">
+            <div className="inline-flex sm:flex sm:flex-wrap items-center sm:justify-center gap-1.5 sm:gap-2">
+              <span className="text-[10px] sm:text-[11px] uppercase tracking-wider text-brand-gold/80 font-mono mr-1 whitespace-nowrap">
+                Audience:
+              </span>
+              {audiences.map((aud) => (
+                <button
+                  key={aud}
+                  onClick={() => setActiveAudience(aud)}
+                  className={`px-2.5 sm:px-3 py-1 rounded-full text-[10px] sm:text-[11px] font-medium whitespace-nowrap transition-all ${
+                    activeAudience === aud
+                      ? 'bg-white/20 text-brand-ivory border border-brand-gold/50 shadow-sm'
+                      : 'bg-white/5 text-brand-mutedIvory hover:text-brand-ivory border border-white/5'
+                  }`}
+                >
+                  {aud === 'All' ? 'All Audiences' : aud}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 

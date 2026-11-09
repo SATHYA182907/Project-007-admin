@@ -38,7 +38,7 @@ export const EventModal: React.FC<EventModalProps> = ({ event, onClose }) => {
 
   return (
     <AnimatePresence>
-      <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 md:p-8 overflow-y-auto">
+      <div className="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-6 md:p-8 overflow-y-auto">
         {/* Backdrop */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -54,36 +54,36 @@ export const EventModal: React.FC<EventModalProps> = ({ event, onClose }) => {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
           transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-          className="relative w-full max-w-5xl max-h-[92vh] glass-card border border-brand-gold/30 rounded-3xl overflow-hidden shadow-2xl z-10 flex flex-col my-auto bg-brand-card/95"
+          className="relative w-full max-w-5xl max-h-[94vh] glass-card border border-brand-gold/30 rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl z-10 flex flex-col my-auto bg-brand-card/95"
         >
           {/* Header Bar */}
-          <div className="sticky top-0 z-20 flex items-center justify-between px-6 py-4 bg-brand-dark/95 backdrop-blur-md border-b border-white/10">
-            <div className="flex items-center gap-2.5 flex-wrap">
-              <span className="px-3 py-1 rounded-full bg-brand-gold/15 border border-brand-gold/40 text-brand-gold text-xs font-bold uppercase tracking-wider">
+          <div className="sticky top-0 z-20 flex items-center justify-between px-4 py-3 sm:px-6 sm:py-4 bg-brand-dark/95 backdrop-blur-md border-b border-white/10">
+            <div className="flex items-center gap-2 flex-wrap">
+              <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-brand-gold/15 border border-brand-gold/40 text-brand-gold text-[10px] sm:text-xs font-bold uppercase tracking-wider">
                 {event.category}
               </span>
               {event.targetAudiences && event.targetAudiences.length > 0 && (
-                <span className="px-3 py-1 rounded-full bg-white/10 text-brand-ivory text-xs font-medium border border-white/15">
+                <span className="px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-white/10 text-brand-ivory text-[10px] sm:text-xs font-medium border border-white/15">
                   Target: {event.targetAudiences.join(', ')}
                 </span>
               )}
-              <span className="text-xs text-brand-mutedIvory/60 font-mono hidden sm:inline">
+              <span className="text-[10px] sm:text-xs text-brand-mutedIvory/60 font-mono hidden sm:inline">
                 EVENT #{event.number}
               </span>
             </div>
             <button
               onClick={onClose}
-              className="p-2 rounded-full glass-card text-brand-ivory hover:text-brand-gold hover:border-brand-gold/50 transition-colors"
+              className="p-1.5 sm:p-2 rounded-full glass-card text-brand-ivory hover:text-brand-gold hover:border-brand-gold/50 transition-colors"
               aria-label="Close modal"
             >
-              <X className="w-5 h-5" />
+              <X className="w-4 h-4 sm:w-5 sm:h-5" />
             </button>
           </div>
 
           {/* Modal Scrollable Body */}
-          <div className="p-6 sm:p-8 md:p-10 overflow-y-auto space-y-8 scrollbar-none">
+          <div className="p-4 sm:p-8 md:p-10 overflow-y-auto space-y-6 sm:space-y-8 scrollbar-none">
             {/* Hero Image inside Modal */}
-            <div className="relative w-full h-64 sm:h-80 md:h-96 rounded-2xl overflow-hidden border border-white/10 bg-black">
+            <div className="relative w-full h-48 sm:h-80 md:h-96 rounded-xl sm:rounded-2xl overflow-hidden border border-white/10 bg-black">
               <img
                 src={event.image}
                 alt={event.title}
@@ -91,12 +91,12 @@ export const EventModal: React.FC<EventModalProps> = ({ event, onClose }) => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/40 to-transparent" />
 
-              <div className="absolute bottom-5 left-5 right-5 sm:bottom-6 sm:left-6 sm:right-6">
-                <div className="flex items-center gap-2 text-xs text-brand-gold font-semibold mb-2">
-                  <MapPin className="w-4 h-4 text-brand-gold" />
+              <div className="absolute bottom-3 left-3 right-3 sm:bottom-6 sm:left-6 sm:right-6">
+                <div className="flex items-center gap-1.5 text-xs text-brand-gold font-semibold mb-1 sm:mb-2">
+                  <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-brand-gold" />
                   <span>{event.location}</span>
                 </div>
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-serif font-bold text-brand-ivory leading-tight">
+                <h2 className="text-xl sm:text-3xl md:text-4xl font-serif font-bold text-brand-ivory leading-tight">
                   {event.title}
                 </h2>
               </div>

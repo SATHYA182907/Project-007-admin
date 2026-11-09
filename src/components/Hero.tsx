@@ -33,7 +33,7 @@ export const Hero: React.FC = () => {
   }, []);
 
   return (
-    <section id="home" className="relative w-full h-screen min-h-[720px] flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative w-full min-h-[640px] h-screen sm:min-h-[720px] flex items-center justify-center overflow-hidden">
       {/* Cinematic Background Slideshow */}
       <div className="absolute inset-0 bg-brand-dark">
         <AnimatePresence mode="wait">
@@ -53,20 +53,20 @@ export const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-brand-dark/95 via-brand-dark/65 to-brand-dark/95" />
 
         {/* Ambient Warm Golden Glow */}
-        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-brand-gold/10 rounded-full blur-[160px] pointer-events-none" />
+        <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[350px] sm:w-[700px] h-[350px] sm:h-[700px] bg-brand-gold/10 rounded-full blur-[100px] sm:blur-[160px] pointer-events-none" />
       </div>
 
       {/* Hero Central Content */}
-      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-24 sm:pt-28">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-16 sm:pt-28 pb-20 sm:pb-8">
         {/* Prominent Brand Tag */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
-          className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-brand-gold/40 shadow-glow-gold mb-6"
+          className="inline-flex items-center gap-2 px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full bg-black/50 backdrop-blur-md border border-brand-gold/40 shadow-glow-gold mb-4 sm:mb-6"
         >
-          <Sparkles className="w-3.5 h-3.5 text-brand-gold animate-pulse" />
-          <span className="text-xs sm:text-sm font-semibold tracking-widest text-brand-gold uppercase">
+          <Sparkles className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-brand-gold animate-pulse" />
+          <span className="text-[11px] sm:text-sm font-semibold tracking-widest text-brand-gold uppercase">
             Offscreen Hub • Events Division
           </span>
         </motion.div>
@@ -76,10 +76,10 @@ export const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.35 }}
-          className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-bold tracking-tight text-brand-ivory leading-[1.08] mb-6"
+          className="text-3xl sm:text-6xl md:text-7xl lg:text-8xl font-serif font-bold tracking-tight text-brand-ivory leading-[1.12] sm:leading-[1.08] mb-4 sm:mb-6"
         >
           OFFSCREEN HUB
-          <span className="block text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-gradient-gold mt-2 font-serif">
+          <span className="block text-xl sm:text-4xl md:text-5xl lg:text-6xl font-light text-gradient-gold mt-1.5 sm:mt-2 font-serif">
             Beyond the Screen, <br className="sm:hidden" /> Into the Real World.
           </span>
         </motion.h1>
@@ -89,7 +89,7 @@ export const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
-          className="max-w-3xl mx-auto text-base sm:text-lg md:text-xl text-brand-mutedIvory font-light leading-relaxed mb-10"
+          className="max-w-3xl mx-auto text-sm sm:text-lg md:text-xl text-brand-mutedIvory font-light leading-relaxed mb-6 sm:mb-10 px-2"
         >
           “Creating meaningful offline experiences that inspire creativity, confidence, intellectual learning and well-being.”
         </motion.p>
@@ -99,18 +99,18 @@ export const Hero: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.65 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6"
+          className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6"
         >
           <a
             href="#explore-journey"
-            className="w-full sm:w-auto px-8 py-4 rounded-full bg-gold-gradient text-brand-dark font-semibold text-xs sm:text-sm tracking-wider uppercase shadow-glow-gold hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 group"
+            className="w-full sm:w-auto px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-gold-gradient text-brand-dark font-semibold text-xs sm:text-sm tracking-wider uppercase shadow-glow-gold hover:scale-105 transition-all duration-300 flex items-center justify-center gap-2 group"
           >
             <span>Explore Our Journey</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </a>
           <a
             href="#collaborate"
-            className="w-full sm:w-auto px-8 py-4 rounded-full bg-white/5 hover:bg-white/10 text-brand-ivory font-semibold text-xs sm:text-sm tracking-wider uppercase border border-white/20 hover:border-brand-gold/60 backdrop-blur-sm transition-all duration-300 flex items-center justify-center gap-2"
+            className="w-full sm:w-auto px-7 py-3.5 sm:px-8 sm:py-4 rounded-full bg-white/5 hover:bg-white/10 text-brand-ivory font-semibold text-xs sm:text-sm tracking-wider uppercase border border-white/20 hover:border-brand-gold/60 backdrop-blur-sm transition-all duration-300 flex items-center justify-center gap-2"
           >
             <span>Collaborate With Us</span>
             <ArrowUpRight className="w-4 h-4 text-brand-gold" />
@@ -122,24 +122,24 @@ export const Hero: React.FC = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.9 }}
-          className="mt-12 inline-flex items-center gap-3 px-4 py-2 rounded-full bg-black/60 backdrop-blur-md text-xs text-brand-mutedIvory border border-white/10 shadow-lg"
+          className="mt-6 sm:mt-12 inline-flex items-center gap-2.5 sm:gap-3 px-3.5 py-1.5 sm:px-4 sm:py-2 rounded-full bg-black/60 backdrop-blur-md text-[11px] sm:text-xs text-brand-mutedIvory border border-white/10 shadow-lg max-w-full truncate"
         >
-          <span className="w-2 h-2 rounded-full bg-brand-gold animate-ping" />
-          <span className="font-semibold text-brand-ivory">{heroSlides[currentSlide].title}:</span>
-          <span className="text-brand-mutedIvory/80 hidden md:inline">{heroSlides[currentSlide].subtitle}</span>
+          <span className="w-2 h-2 rounded-full bg-brand-gold animate-ping shrink-0" />
+          <span className="font-semibold text-brand-ivory shrink-0">{heroSlides[currentSlide].title}:</span>
+          <span className="text-brand-mutedIvory/80 hidden md:inline truncate">{heroSlides[currentSlide].subtitle}</span>
         </motion.div>
       </div>
 
       {/* Bottom Controls: Slideshow Indicators & Scroll to Discover */}
-      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-3">
+      <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2.5 sm:gap-3">
         {/* Pagination Slideshow Indicators (".......") */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-1.5 sm:gap-2">
           {heroSlides.map((_, index) => (
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
               className={`transition-all duration-300 rounded-full ${
-                currentSlide === index ? 'w-8 h-2 bg-brand-gold shadow-glow-gold' : 'w-2 h-2 bg-white/30 hover:bg-white/60'
+                currentSlide === index ? 'w-6 sm:w-8 h-1.5 sm:h-2 bg-brand-gold shadow-glow-gold' : 'w-1.5 sm:w-2 h-1.5 sm:h-2 bg-white/30 hover:bg-white/60'
               }`}
               aria-label={`Go to slide ${index + 1}`}
             />
@@ -152,10 +152,10 @@ export const Hero: React.FC = () => {
           initial={{ opacity: 0, y: -3 }}
           animate={{ opacity: 1, y: 3 }}
           transition={{ repeat: Infinity, repeatType: 'reverse', duration: 1.5 }}
-          className="flex flex-col items-center gap-1 text-brand-gold/80 hover:text-brand-gold transition-colors text-[10px] tracking-widest uppercase font-semibold group cursor-pointer"
+          className="flex flex-col items-center gap-0.5 sm:gap-1 text-brand-gold/80 hover:text-brand-gold transition-colors text-[9px] sm:text-[10px] tracking-widest uppercase font-semibold group cursor-pointer"
         >
           <span className="whitespace-nowrap">SCROLL TO DISCOVER</span>
-          <ChevronDown className="w-4 h-4 text-brand-gold transition-transform group-hover:translate-y-0.5" />
+          <ChevronDown className="w-3.5 sm:w-4 h-3.5 sm:h-4 text-brand-gold transition-transform group-hover:translate-y-0.5" />
         </motion.a>
       </div>
     </section>

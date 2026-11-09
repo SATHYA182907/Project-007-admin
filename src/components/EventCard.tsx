@@ -21,7 +21,7 @@ export const EventCard: React.FC<EventCardProps> = ({ event, onSelectEvent }) =>
       className="group cursor-pointer rounded-2xl glass-card border border-white/10 hover:border-brand-gold/40 overflow-hidden shadow-xl hover:shadow-[0_20px_40px_rgba(212,175,55,0.12)] transition-all duration-300 flex flex-col bg-brand-card/90"
     >
       {/* Event Photograph with Subtle Gradient Overlay */}
-      <div className="relative w-full h-56 sm:h-60 overflow-hidden bg-black/40">
+      <div className="relative w-full h-48 sm:h-60 overflow-hidden bg-black/40">
         <img
           src={event.image}
           alt={event.title}
@@ -30,39 +30,39 @@ export const EventCard: React.FC<EventCardProps> = ({ event, onSelectEvent }) =>
         <div className="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/30 to-transparent opacity-85 group-hover:opacity-65 transition-opacity" />
 
         {/* Top Badges (Category & Target Audience) */}
-        <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between gap-2 z-10">
+        <div className="absolute top-3 left-3 right-3 sm:top-3.5 sm:left-3.5 sm:right-3.5 flex items-center justify-between gap-2 z-10">
           <div className="flex flex-wrap gap-1.5">
             {event.categories && event.categories.length > 0 ? (
               event.categories.slice(0, 2).map((cat, i) => (
                 <span
                   key={i}
-                  className="px-2.5 py-1 rounded-full bg-brand-dark/85 backdrop-blur-md text-[10px] font-bold text-brand-gold uppercase tracking-wider border border-brand-gold/30"
+                  className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full bg-brand-dark/85 backdrop-blur-md text-[9px] sm:text-[10px] font-bold text-brand-gold uppercase tracking-wider border border-brand-gold/30"
                 >
                   {cat}
                 </span>
               ))
             ) : (
-              <span className="px-2.5 py-1 rounded-full bg-brand-dark/85 backdrop-blur-md text-[10px] font-bold text-brand-gold uppercase tracking-wider border border-brand-gold/30">
+              <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full bg-brand-dark/85 backdrop-blur-md text-[9px] sm:text-[10px] font-bold text-brand-gold uppercase tracking-wider border border-brand-gold/30">
                 {event.category}
               </span>
             )}
           </div>
 
           {event.targetAudiences && event.targetAudiences.length > 0 && (
-            <span className="px-2.5 py-1 rounded-full bg-white/15 backdrop-blur-md text-[10px] font-medium text-brand-ivory border border-white/20">
+            <span className="px-2 py-0.5 sm:px-2.5 sm:py-1 rounded-full bg-white/15 backdrop-blur-md text-[9px] sm:text-[10px] font-medium text-brand-ivory border border-white/20">
               {event.targetAudiences[0]}
             </span>
           )}
         </div>
 
         {/* Number Watermark */}
-        <span className="absolute bottom-3 right-3 text-3xl font-serif font-extrabold text-white/20 group-hover:text-brand-gold/35 transition-colors">
+        <span className="absolute bottom-2.5 right-3 text-2xl sm:text-3xl font-serif font-extrabold text-white/20 group-hover:text-brand-gold/35 transition-colors">
           #{event.number}
         </span>
       </div>
 
       {/* Card Information Body */}
-      <div className="p-6 flex flex-col justify-between flex-grow">
+      <div className="p-4 sm:p-6 flex flex-col justify-between flex-grow">
         <div>
           {/* Location */}
           <div className="flex items-center gap-1.5 text-xs text-brand-gold/90 font-medium mb-2.5">

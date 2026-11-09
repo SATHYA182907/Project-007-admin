@@ -21,11 +21,11 @@ export const EntryHubPage: React.FC = () => {
   return (
     <div className="min-h-screen lg:h-screen lg:max-h-screen bg-[#FAF8F5] text-[#1E232B] font-sans selection:bg-[#E5C96D]/40 selection:text-[#0D0D0F] relative overflow-y-auto lg:overflow-hidden flex flex-col justify-between">
       {/* Soft Gradient Ambient Background */}
-      <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute -top-32 -left-32 w-[550px] h-[550px] bg-[#EDE9FE]/70 rounded-full blur-[140px]" />
-        <div className="absolute top-1/4 -right-24 w-[450px] h-[450px] bg-[#E0F2FE]/60 rounded-full blur-[140px]" />
-        <div className="absolute -bottom-24 left-1/3 w-[550px] h-[550px] bg-[#FFEDD5]/60 rounded-full blur-[150px]" />
-        <div className="absolute top-2/3 right-1/4 w-[350px] h-[350px] bg-[#FEF3C7]/50 rounded-full blur-[130px]" />
+      <div className="fixed inset-0 pointer-events-none z-0 overflow-hidden">
+        <div className="absolute -top-32 -left-32 w-[350px] sm:w-[550px] h-[350px] sm:h-[550px] bg-[#EDE9FE]/70 rounded-full blur-[100px] sm:blur-[140px]" />
+        <div className="absolute top-1/4 -right-24 w-[300px] sm:w-[450px] h-[300px] sm:h-[450px] bg-[#E0F2FE]/60 rounded-full blur-[100px] sm:blur-[140px]" />
+        <div className="absolute -bottom-24 left-1/3 w-[350px] sm:w-[550px] h-[350px] sm:h-[550px] bg-[#FFEDD5]/60 rounded-full blur-[110px] sm:blur-[150px]" />
+        <div className="absolute top-2/3 right-1/4 w-[250px] sm:w-[350px] h-[250px] sm:h-[350px] bg-[#FEF3C7]/50 rounded-full blur-[90px] sm:blur-[130px]" />
         {/* Subtle dot pattern */}
         <div
           className="absolute inset-0 opacity-[0.025]"

@@ -56,23 +56,23 @@ export const AboutSection: React.FC = () => {
   ];
 
   return (
-    <section id="about" className="relative py-24 sm:py-32 bg-brand-darker border-t border-white/5 overflow-hidden">
+    <section id="about" className="relative py-16 sm:py-32 bg-brand-darker border-t border-white/5 overflow-hidden">
       {/* Background radial ambient lights */}
-      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-brand-lavender/10 rounded-full blur-[160px] pointer-events-none" />
-      <div className="absolute bottom-1/4 -left-20 w-[450px] h-[450px] bg-brand-gold/10 rounded-full blur-[150px] pointer-events-none" />
+      <div className="absolute top-1/4 right-0 w-[300px] sm:w-[500px] h-[300px] sm:h-[500px] bg-brand-lavender/10 rounded-full blur-[100px] sm:blur-[160px] pointer-events-none" />
+      <div className="absolute bottom-1/4 -left-20 w-[300px] sm:w-[450px] h-[300px] sm:h-[450px] bg-brand-gold/10 rounded-full blur-[100px] sm:blur-[150px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
+        <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-20">
           <motion.div
             initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-card border border-brand-gold/30 mb-4"
+            className="inline-flex items-center gap-2 px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full bg-brand-card border border-brand-gold/30 mb-3 sm:mb-4"
           >
             <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
-            <span className="text-xs font-semibold tracking-widest text-brand-gold uppercase">
+            <span className="text-[11px] sm:text-xs font-semibold tracking-widest text-brand-gold uppercase">
               About Offscreen Hub
             </span>
           </motion.div>
@@ -82,7 +82,7 @@ export const AboutSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-brand-ivory leading-tight mb-6"
+            className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-brand-ivory leading-tight mb-4 sm:mb-6"
           >
             A Platform for Living Fully, <br />
             <span className="text-gradient-gold">Beyond the Glass.</span>
@@ -93,67 +93,67 @@ export const AboutSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-base sm:text-lg text-brand-mutedIvory leading-relaxed font-light"
+            className="text-sm sm:text-lg text-brand-mutedIvory leading-relaxed font-light"
           >
             Offscreen Entertainment Hub (OSH) is a unique platform created for all age groups, blending fun, learning and mental wellness through games, workshops and brain gym challenges in a screen-free environment.
           </motion.p>
         </div>
 
         {/* Editorial Two-Column Showcase */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center mb-16 sm:mb-20">
           {/* Left Column: Authentic Photography Collage */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="lg:col-span-6 grid grid-cols-2 gap-4"
+            className="lg:col-span-6 grid grid-cols-2 gap-3 sm:gap-4"
           >
-            <div className="space-y-4">
-              <div className="rounded-3xl overflow-hidden aspect-[3/4] border border-white/10 shadow-2xl relative group">
+            <div className="space-y-3 sm:space-y-4">
+              <div className="rounded-2xl sm:rounded-3xl overflow-hidden aspect-[3/4] border border-white/10 shadow-2xl relative group">
                 <img
                   src={aboutImg1}
                   alt="Cognitive Brain Gym Drill"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
-                  <span className="text-xs font-semibold text-brand-ivory">Cognitive Brain Drills</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3 sm:p-4">
+                  <span className="text-[11px] sm:text-xs font-semibold text-brand-ivory">Cognitive Brain Drills</span>
                 </div>
               </div>
 
-              <div className="p-6 rounded-2xl glass-card border border-brand-gold/30 bg-brand-card/80">
-                <div className="flex items-center gap-3 mb-2">
-                  <Users className="w-5 h-5 text-brand-gold" />
-                  <span className="text-xs font-serif font-semibold text-brand-ivory uppercase tracking-wider">
+              <div className="p-4 sm:p-6 rounded-2xl glass-card border border-brand-gold/30 bg-brand-card/80">
+                <div className="flex items-center gap-2 sm:gap-3 mb-1.5 sm:mb-2">
+                  <Users className="w-4 sm:w-5 h-4 sm:h-5 text-brand-gold" />
+                  <span className="text-[11px] sm:text-xs font-serif font-semibold text-brand-ivory uppercase tracking-wider">
                     All Generations
                   </span>
                 </div>
-                <p className="text-xs text-brand-mutedIvory leading-relaxed">
+                <p className="text-[11px] sm:text-xs text-brand-mutedIvory leading-relaxed">
                   From playful toddlers to cherished senior citizens, OSH unites generations in shared laughter and presence.
                 </p>
               </div>
             </div>
 
-            <div className="space-y-4 pt-8">
-              <div className="rounded-3xl overflow-hidden aspect-square border border-white/10 shadow-2xl relative group">
+            <div className="space-y-3 sm:space-y-4 pt-5 sm:pt-8">
+              <div className="rounded-2xl sm:rounded-3xl overflow-hidden aspect-square border border-white/10 shadow-2xl relative group">
                 <img
                   src={aboutImg2}
                   alt="Senior Sangamam Fellowship"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
-                  <span className="text-xs font-semibold text-brand-ivory">Elders & Senior Sangamam</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3 sm:p-4">
+                  <span className="text-[11px] sm:text-xs font-semibold text-brand-ivory">Elders & Senior Sangamam</span>
                 </div>
               </div>
 
-              <div className="rounded-3xl overflow-hidden aspect-[4/5] border border-white/10 shadow-2xl relative group">
+              <div className="rounded-2xl sm:rounded-3xl overflow-hidden aspect-[4/5] border border-white/10 shadow-2xl relative group">
                 <img
                   src={aboutImg3}
                   alt="Intergenerational Joy"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
-                  <span className="text-xs font-semibold text-brand-ivory">Nana Nani Fellowship</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-3 sm:p-4">
+                  <span className="text-[11px] sm:text-xs font-semibold text-brand-ivory">Nana Nani Fellowship</span>
                 </div>
               </div>
             </div>

@@ -95,21 +95,27 @@ export const SponsorsSection: React.FC = () => {
         </div>
 
         {/* Category Filter Chips */}
-        <div className="flex items-center justify-center gap-2 overflow-x-auto pb-4 mb-12 scrollbar-none">
-          <div className="flex flex-wrap items-center justify-center gap-2 p-1.5 rounded-2xl glass-card border border-white/10 shadow-lg max-w-4xl">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setSelectedCategory(cat)}
-                className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold uppercase tracking-wider whitespace-nowrap transition-all duration-300 ${
-                  selectedCategory === cat
-                    ? 'bg-gold-gradient text-brand-dark shadow-glow-gold'
-                    : 'text-brand-mutedIvory hover:text-brand-ivory hover:bg-white/5'
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
+        <div className="mb-8 sm:mb-12">
+          <div className="flex items-center justify-between sm:justify-center gap-2 mb-2 text-xs text-brand-mutedIvory font-medium sm:hidden">
+            <span className="uppercase tracking-wider text-[11px] text-brand-gold">Filter Partners</span>
+            <span className="text-[10px] text-brand-gold/70 font-mono">Swipe →</span>
+          </div>
+          <div className="overflow-x-auto pb-2 scrollbar-none -mx-4 px-4 sm:mx-0 sm:px-0">
+            <div className="inline-flex sm:flex sm:flex-wrap items-center sm:justify-center gap-1.5 sm:gap-2 p-1.5 rounded-2xl glass-card border border-white/10 shadow-lg sm:max-w-4xl">
+              {categories.map((cat) => (
+                <button
+                  key={cat}
+                  onClick={() => setSelectedCategory(cat)}
+                  className={`px-3 py-1.5 rounded-xl text-xs font-semibold uppercase tracking-wider whitespace-nowrap transition-all duration-300 ${
+                    selectedCategory === cat
+                      ? 'bg-gold-gradient text-brand-dark shadow-glow-gold'
+                      : 'text-brand-mutedIvory hover:text-brand-ivory hover:bg-white/5'
+                  }`}
+                >
+                  {cat}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 

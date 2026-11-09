@@ -195,7 +195,7 @@ export const JoinTeamSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="rounded-3xl glass-card border border-brand-gold/30 p-8 sm:p-12 shadow-2xl bg-brand-card/90 relative"
+            className="rounded-2xl sm:rounded-3xl glass-card border border-brand-gold/30 p-5 sm:p-10 md:p-12 shadow-2xl bg-brand-card/90 relative"
           >
             <AnimatePresence mode="wait">
               {submitSuccess ? (
@@ -243,7 +243,7 @@ export const JoinTeamSection: React.FC = () => {
                         value={formData.fullName}
                         onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
                         placeholder="e.g. Ananya Sundaram"
-                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-brand-ivory placeholder-brand-mutedIvory/40 text-sm focus:outline-none focus:border-brand-gold transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-brand-ivory placeholder-brand-mutedIvory/40 text-base sm:text-sm focus:outline-none focus:border-brand-gold transition-colors"
                       />
                     </div>
 
@@ -257,7 +257,7 @@ export const JoinTeamSection: React.FC = () => {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="e.g. ananya@example.com"
-                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-brand-ivory placeholder-brand-mutedIvory/40 text-sm focus:outline-none focus:border-brand-gold transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-brand-ivory placeholder-brand-mutedIvory/40 text-base sm:text-sm focus:outline-none focus:border-brand-gold transition-colors"
                       />
                     </div>
 
@@ -271,7 +271,7 @@ export const JoinTeamSection: React.FC = () => {
                         value={formData.phone}
                         onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                         placeholder="e.g. +91 98765 43210"
-                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-brand-ivory placeholder-brand-mutedIvory/40 text-sm focus:outline-none focus:border-brand-gold transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-brand-ivory placeholder-brand-mutedIvory/40 text-base sm:text-sm focus:outline-none focus:border-brand-gold transition-colors"
                       />
                     </div>
                   </div>
@@ -284,7 +284,7 @@ export const JoinTeamSection: React.FC = () => {
                     <select
                       value={formData.areaOfInterest}
                       onChange={(e) => setFormData({ ...formData, areaOfInterest: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl bg-brand-dark border border-white/10 text-brand-ivory text-sm focus:outline-none focus:border-brand-gold transition-colors"
+                      className="w-full px-4 py-3 rounded-xl bg-brand-dark border border-white/10 text-brand-ivory text-base sm:text-sm focus:outline-none focus:border-brand-gold transition-colors"
                     >
                       {areaOptions.map((opt) => (
                         <option key={opt} value={opt} className="bg-brand-dark text-brand-ivory">
@@ -305,7 +305,7 @@ export const JoinTeamSection: React.FC = () => {
                         value={formData.skills}
                         onChange={(e) => setFormData({ ...formData, skills: e.target.value })}
                         placeholder="e.g. Workshop Hosting, Emceeing, Yoga"
-                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-brand-ivory placeholder-brand-mutedIvory/40 text-sm focus:outline-none focus:border-brand-gold transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-brand-ivory placeholder-brand-mutedIvory/40 text-base sm:text-sm focus:outline-none focus:border-brand-gold transition-colors"
                       />
                     </div>
 
@@ -318,7 +318,7 @@ export const JoinTeamSection: React.FC = () => {
                         value={formData.experience}
                         onChange={(e) => setFormData({ ...formData, experience: e.target.value })}
                         placeholder="e.g. 2 years volunteering, student leader"
-                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-brand-ivory placeholder-brand-mutedIvory/40 text-sm focus:outline-none focus:border-brand-gold transition-colors"
+                        className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-brand-ivory placeholder-brand-mutedIvory/40 text-base sm:text-sm focus:outline-none focus:border-brand-gold transition-colors"
                       />
                     </div>
                   </div>
@@ -333,7 +333,7 @@ export const JoinTeamSection: React.FC = () => {
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Share your passion for offline living, community work, or how you would like to contribute..."
-                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-brand-ivory placeholder-brand-mutedIvory/40 text-sm focus:outline-none focus:border-brand-gold transition-colors resize-none"
+                      className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-brand-ivory placeholder-brand-mutedIvory/40 text-base sm:text-sm focus:outline-none focus:border-brand-gold transition-colors resize-none"
                     />
                   </div>
 

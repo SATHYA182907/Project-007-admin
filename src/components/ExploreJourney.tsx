@@ -158,34 +158,39 @@ export const ExploreJourney: React.FC = () => {
         </div>
 
         {/* Interactive Chronological Milestone Selector */}
-        <div className="mb-12 overflow-x-auto pb-4 scrollbar-none">
-          <div className="flex items-center justify-between min-w-[700px] relative border-b border-white/10 px-4">
-            {milestones.map((m, idx) => {
-              const isActive = idx === activeIdx;
-              return (
-                <button
-                  key={m.id}
-                  onClick={() => setActiveIdx(idx)}
-                  className={`flex flex-col items-center pb-4 relative transition-all duration-300 group focus:outline-none ${
-                    isActive ? 'opacity-100' : 'opacity-50 hover:opacity-80'
-                  }`}
-                >
-                  <span className="text-[10px] uppercase font-mono tracking-wider text-brand-gold mb-1">
-                    {m.year}
-                  </span>
-                  <span className="text-xs sm:text-sm font-serif font-medium text-brand-ivory whitespace-nowrap">
-                    {m.chapter}
-                  </span>
-                  {/* Active Indicator Underline */}
-                  {isActive && (
-                    <motion.div
-                      layoutId="activeJourneyIndicator"
-                      className="absolute -bottom-[1px] left-0 right-0 h-[2.5px] bg-gold-gradient shadow-glow-gold"
-                    />
-                  )}
-                </button>
-              );
-            })}
+        <div className="mb-8 sm:mb-12">
+          <span className="text-[10px] text-brand-gold/70 sm:hidden block text-center mb-2 font-mono uppercase tracking-wider">
+            ← Swipe phases to navigate →
+          </span>
+          <div className="overflow-x-auto pb-3 scrollbar-none -mx-4 px-4 sm:mx-0 sm:px-0">
+            <div className="flex items-center justify-between min-w-[650px] sm:min-w-[700px] relative border-b border-white/10 px-2 sm:px-4">
+              {milestones.map((m, idx) => {
+                const isActive = idx === activeIdx;
+                return (
+                  <button
+                    key={m.id}
+                    onClick={() => setActiveIdx(idx)}
+                    className={`flex flex-col items-center pb-3 sm:pb-4 relative transition-all duration-300 group focus:outline-none ${
+                      isActive ? 'opacity-100' : 'opacity-50 hover:opacity-80'
+                    }`}
+                  >
+                    <span className="text-[9px] sm:text-[10px] uppercase font-mono tracking-wider text-brand-gold mb-1">
+                      {m.year}
+                    </span>
+                    <span className="text-xs sm:text-sm font-serif font-medium text-brand-ivory whitespace-nowrap px-2">
+                      {m.chapter}
+                    </span>
+                    {/* Active Indicator Underline */}
+                    {isActive && (
+                      <motion.div
+                        layoutId="activeJourneyIndicator"
+                        className="absolute -bottom-[1px] left-0 right-0 h-[2.5px] bg-gold-gradient shadow-glow-gold"
+                      />
+                    )}
+                  </button>
+                );
+              })}
+            </div>
           </div>
         </div>
 
@@ -197,22 +202,22 @@ export const ExploreJourney: React.FC = () => {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
             transition={{ duration: 0.5 }}
-            className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center rounded-3xl glass-card border border-white/10 p-6 sm:p-10 shadow-2xl bg-brand-card/90"
+            className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center rounded-2xl sm:rounded-3xl glass-card border border-white/10 p-4 sm:p-8 lg:p-10 shadow-2xl bg-brand-card/90"
           >
             {/* Left: Authentic Event Image */}
-            <div className="lg:col-span-7 relative rounded-2xl overflow-hidden aspect-[16/10] shadow-xl group border border-white/10">
+            <div className="lg:col-span-7 relative rounded-xl sm:rounded-2xl overflow-hidden aspect-[16/10] shadow-xl group border border-white/10">
               <img
                 src={activeMilestone.image}
                 alt={activeMilestone.title}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-xs text-brand-ivory">
-                <span className="inline-flex items-center gap-1.5 bg-black/60 backdrop-blur-md px-3 py-1 rounded-full border border-white/10 font-medium">
-                  <MapPin className="w-3.5 h-3.5 text-brand-gold" />
-                  {activeMilestone.location}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/20 to-transparent" />
+              <div className="absolute bottom-3 left-3 right-3 sm:bottom-4 sm:left-4 sm:right-4 flex flex-wrap items-center justify-between gap-2 text-xs text-brand-ivory">
+                <span className="inline-flex items-center gap-1.5 bg-black/70 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/10 font-medium text-[11px] sm:text-xs">
+                  <MapPin className="w-3 sm:w-3.5 h-3 sm:h-3.5 text-brand-gold shrink-0" />
+                  <span className="truncate max-w-[200px] sm:max-w-none">{activeMilestone.location}</span>
                 </span>
-                <span className="bg-brand-gold/90 text-brand-dark px-3 py-1 rounded-full font-bold text-[11px] shadow-sm">
+                <span className="bg-brand-gold/90 text-brand-dark px-2.5 py-1 rounded-full font-bold text-[10px] sm:text-[11px] shadow-sm shrink-0">
                   {activeMilestone.participants}
                 </span>
               </div>
