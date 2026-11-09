@@ -4,7 +4,7 @@ import { AuthProvider } from './hooks/useAuth';
 // Division Portals
 import { EntryHubPage } from './pages/EntryHubPage';
 import { PortfolioPage } from './pages/PortfolioPage';
-import { EducationPage } from './pages/EducationPage';
+import { LifeSkillsPage } from './pages/LifeSkillsPage';
 
 // Admin Portal Pages & Components
 import { AdminLoginPage } from './pages/admin/AdminLoginPage';
@@ -31,8 +31,9 @@ export function App() {
           {/* 2. Events Division: Complete Public Events Portal */}
           <Route path="/events" element={<PortfolioPage />} />
 
-          {/* 3. Education Division: Dedicated Coming Soon Portal */}
-          <Route path="/education" element={<EducationPage />} />
+          {/* 3. Life Skills Division: Dedicated Coming Soon Portal */}
+          <Route path="/lifeskills" element={<LifeSkillsPage />} />
+          <Route path="/education" element={<Navigate to="/lifeskills" replace />} />
 
           {/* Admin Authentication */}
           <Route path="/admin/login" element={<AdminLoginPage />} />

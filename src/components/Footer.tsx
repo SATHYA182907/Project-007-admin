@@ -58,11 +58,11 @@ export const Footer: React.FC = () => {
                 <span>Division Hub</span>
               </Link>
               <Link
-                to="/education"
+                to="/lifeskills"
                 className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-brand-ivory transition-colors"
               >
                 <BookOpen className="w-3.5 h-3.5 text-brand-lavender" />
-                <span>Education Division</span>
+                <span>Life Skills Division</span>
               </Link>
               <Link
                 to="/admin"
