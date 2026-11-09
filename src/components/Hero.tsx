@@ -148,7 +148,7 @@ export const Hero: React.FC = () => {
 
         {/* Scroll to Discover directly below the indicators */}
         <motion.a
-          href="#about"
+          href="#explore-journey"
           initial={{ opacity: 0, y: -3 }}
           animate={{ opacity: 1, y: 3 }}
           transition={{ repeat: Infinity, repeatType: 'reverse', duration: 1.5 }}

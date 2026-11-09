@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 import { Navbar } from '../components/Navbar';
 import { Hero } from '../components/Hero';
-import { AboutSection } from '../components/AboutSection';
 import { ExploreJourney } from '../components/ExploreJourney';
 import { EventsPortfolio } from '../components/EventsPortfolio';
 import { KomagalAwardsSection } from '../components/KomagalAwardsSection';
@@ -83,10 +82,7 @@ export const PortfolioPage: React.FC = () => {
             {/* 01: Hero Section */}
             <Hero />
 
-            {/* 02: About Us (Repositioned ABOVE Explore Our Journey) */}
-            <AboutSection />
-
-            {/* 03: Explore Our Journey (Immediately AFTER About Us) */}
+            {/* 02: Explore Our Journey */}
             <ExploreJourney />
 
             {/* 04 & 05: Event Categories & Complete 21-Event Portfolio */}
