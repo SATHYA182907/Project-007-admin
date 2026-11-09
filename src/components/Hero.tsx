@@ -130,31 +130,34 @@ export const Hero: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Pagination Slideshow Indicators */}
-      <div className="absolute bottom-16 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
-        {heroSlides.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentSlide(index)}
-            className={`transition-all duration-300 rounded-full ${
-              currentSlide === index ? 'w-8 h-2 bg-brand-gold shadow-glow-gold' : 'w-2 h-2 bg-white/30 hover:bg-white/60'
-            }`}
-            aria-label={`Go to slide ${index + 1}`}
-          />
-        ))}
-      </div>
+      {/* Bottom Controls: Slideshow Indicators & Scroll to Discover */}
+      <div className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-3">
+        {/* Pagination Slideshow Indicators (".......") */}
+        <div className="flex items-center gap-2">
+          {heroSlides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => setCurrentSlide(index)}
+              className={`transition-all duration-300 rounded-full ${
+                currentSlide === index ? 'w-8 h-2 bg-brand-gold shadow-glow-gold' : 'w-2 h-2 bg-white/30 hover:bg-white/60'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            />
+          ))}
+        </div>
 
-      {/* Bottom Scroll Indicator */}
-      <motion.a
-        href="#about"
-        initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ repeat: Infinity, repeatType: 'reverse', duration: 1.5 }}
-        className="absolute bottom-5 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-1 text-brand-gold/80 hover:text-brand-gold transition-colors text-[10px] tracking-widest uppercase font-semibold"
-      >
-        <span>SCROLL TO DISCOVER</span>
-        <ChevronDown className="w-4 h-4" />
-      </motion.a>
+        {/* Scroll to Discover directly below the indicators */}
+        <motion.a
+          href="#about"
+          initial={{ opacity: 0, y: -3 }}
+          animate={{ opacity: 1, y: 3 }}
+          transition={{ repeat: Infinity, repeatType: 'reverse', duration: 1.5 }}
+          className="flex flex-col items-center gap-1 text-brand-gold/80 hover:text-brand-gold transition-colors text-[10px] tracking-widest uppercase font-semibold group cursor-pointer"
+        >
+          <span className="whitespace-nowrap">SCROLL TO DISCOVER</span>
+          <ChevronDown className="w-4 h-4 text-brand-gold transition-transform group-hover:translate-y-0.5" />
+        </motion.a>
+      </div>
     </section>
   );
 };
