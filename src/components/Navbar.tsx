@@ -14,113 +14,107 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal: _onOpenJoinModa
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 40) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
+      setIsScrolled(window.scrollY > 30);
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About Us', href: '#about' },
-    { name: 'Our Journey', href: '#explore-journey' },
-    { name: 'Our Events', href: '#events' },
+    { name: 'About', href: '#about' },
+    { name: 'Journey', href: '#explore-journey' },
+    { name: 'Events', href: '#events' },
     { name: 'Awards', href: '#awards' },
-    { name: 'Our Impact', href: '#impact' },
-    { name: 'Sponsors', href: '#sponsors' },
-    { name: 'Collaborate', href: '#collaborate' },
-    { name: 'Join Our Team', href: '#join-team' },
+    { name: 'Impact', href: '#impact' },
+    { name: 'Partners', href: '#sponsors' },
+    { name: 'Join Us', href: '#join-team' },
     { name: 'Contact', href: '#contact' },
   ];
 
+  const handleScrollToTop = (e: React.MouseEvent) => {
+    if (window.location.pathname === '/events') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-brand-dark/95 backdrop-blur-md py-3 shadow-glass border-b border-brand-gold/15'
-          : 'bg-gradient-to-b from-brand-dark/90 via-brand-dark/50 to-transparent py-4'
+          ? 'bg-brand-dark/95 backdrop-blur-md py-3 shadow-lg border-b border-brand-gold/15'
+          : 'bg-brand-dark/80 backdrop-blur-sm py-4 border-b border-white/[0.06]'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between gap-4">
         {/* Brand Logo & Wordmark */}
-        <div className="flex items-center gap-3">
-          <Link to="/" className="flex items-center gap-2.5 group">
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden border border-brand-gold/40 group-hover:border-brand-gold transition-colors duration-300 shadow-glow-gold flex items-center justify-center bg-black/40">
-              <img src={logoImg} alt="Offscreen Hub Logo" className="w-full h-full object-cover" />
-            </div>
-            <div className="flex flex-col">
-              <span className="font-serif text-base sm:text-lg font-bold tracking-wider text-brand-ivory group-hover:text-brand-gold transition-colors leading-tight">
-                OFFSCREEN HUB
-              </span>
-              <span className="text-[9px] tracking-widest text-brand-gold/80 font-sans uppercase">
-                Events Division
-              </span>
-            </div>
-          </Link>
-
-          {/* Division Switcher Pill */}
-          <Link
-            to="/"
-            className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-semibold tracking-wider text-brand-gold bg-brand-gold/10 hover:bg-brand-gold/20 border border-brand-gold/30 transition-colors uppercase ml-2"
-            title="Switch Division"
-          >
-            <LayoutGrid className="w-3 h-3 text-brand-gold" />
-            <span>Hub</span>
-          </Link>
-        </div>
+        <Link
+          to="/events"
+          onClick={handleScrollToTop}
+          className="flex items-center gap-3 group flex-shrink-0"
+        >
+          <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full overflow-hidden border border-brand-gold/40 group-hover:border-brand-gold transition-colors duration-300 shadow-glow-gold flex items-center justify-center bg-black/40">
+            <img src={logoImg} alt="Offscreen Hub" className="w-full h-full object-cover" />
+          </div>
+          <div className="flex flex-col">
+            <span className="font-serif text-base sm:text-lg font-bold tracking-wider text-brand-ivory group-hover:text-brand-gold transition-colors leading-tight whitespace-nowrap">
+              OFFSCREEN HUB
+            </span>
+            <span className="text-[9px] tracking-[0.2em] text-brand-gold/80 font-sans uppercase">
+              Events Division
+            </span>
+          </div>
+        </Link>
 
         {/* Desktop Navigation Links */}
-        <nav className="hidden xl:flex items-center gap-5 2xl:gap-6">
+        <nav className="hidden lg:flex items-center gap-5 xl:gap-7 flex-shrink-0">
           {navLinks.map((link) => (
             <a
               key={link.name}
               href={link.href}
-              className="text-xs font-medium tracking-wide text-brand-mutedIvory hover:text-brand-gold transition-colors duration-200 relative group py-1"
+              className="text-xs uppercase tracking-wider font-medium text-brand-mutedIvory hover:text-brand-gold transition-colors duration-200 relative group py-1 whitespace-nowrap"
             >
               {link.name}
-              <span className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-brand-gold transition-all duration-300 group-hover:w-full" />
+              <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-brand-gold/80 transition-all duration-300 group-hover:w-full rounded-full" />
             </a>
           ))}
         </nav>
 
-        {/* Action Buttons */}
-        <div className="hidden md:flex items-center gap-3">
-          <a
-            href="tel:9360701789"
-            className="hidden lg:flex items-center gap-1.5 text-xs font-medium text-brand-ivory/80 hover:text-brand-gold transition-colors px-2 py-1"
+        {/* Right Utility Cluster: Division Switcher + CTA Button */}
+        <div className="hidden sm:flex items-center gap-3 flex-shrink-0">
+          {/* Switch Division Hub Pill */}
+          <Link
+            to="/"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium text-brand-gold bg-brand-gold/10 hover:bg-brand-gold/20 border border-brand-gold/30 hover:border-brand-gold/60 transition-all duration-200 whitespace-nowrap"
+            title="Return to Division Selection Hub"
           >
-            <Phone className="w-3.5 h-3.5 text-brand-gold" />
-            <span>9360701789</span>
-          </a>
+            <LayoutGrid className="w-3.5 h-3.5 text-brand-gold" />
+            <span className="tracking-wide">Hub</span>
+          </Link>
 
+          {/* Primary CTA */}
           <a
             href="#collaborate"
-            className="relative group overflow-hidden rounded-full p-[1px] focus:outline-none"
+            className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-gold-gradient hover:brightness-110 text-brand-dark font-semibold text-xs tracking-wider uppercase transition-all duration-200 shadow-glow-gold whitespace-nowrap group"
           >
-            <span className="absolute inset-0 bg-gold-gradient rounded-full opacity-70 group-hover:opacity-100 transition-opacity" />
-            <span className="relative px-3.5 py-1.5 rounded-full bg-brand-dark hover:bg-brand-dark/80 transition-colors flex items-center gap-1.5 text-xs font-semibold tracking-wider text-brand-ivory uppercase">
-              Collaborate
-              <ArrowUpRight className="w-3.5 h-3.5 text-brand-gold group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-            </span>
+            <span>Collaborate</span>
+            <ArrowUpRight className="w-3.5 h-3.5 text-brand-dark transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </a>
         </div>
 
-        {/* Mobile Hamburger Toggle */}
-        <div className="flex items-center gap-2 xl:hidden">
+        {/* Mobile / Tablet Controls */}
+        <div className="flex items-center gap-2 lg:hidden">
           <Link
             to="/"
-            className="inline-flex sm:hidden items-center gap-1 px-2 py-1 rounded-full text-[10px] font-semibold text-brand-gold bg-brand-gold/10 border border-brand-gold/30"
+            className="inline-flex sm:hidden items-center gap-1 px-2.5 py-1 rounded-full text-[11px] font-semibold text-brand-gold bg-brand-gold/10 border border-brand-gold/30"
           >
             <LayoutGrid className="w-3 h-3" />
             <span>Hub</span>
           </Link>
+
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 rounded-lg text-brand-ivory hover:text-brand-gold focus:outline-none glass-card"
+            className="p-2 rounded-lg text-brand-ivory hover:text-brand-gold focus:outline-none bg-white/5 border border-white/10"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5 text-brand-gold" /> : <Menu className="w-5 h-5" />}
@@ -128,25 +122,27 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal: _onOpenJoinModa
         </div>
       </div>
 
-      {/* Mobile Slideout Menu */}
+      {/* Mobile Drawer */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="xl:hidden bg-brand-dark/95 backdrop-blur-xl border-b border-brand-gold/20 overflow-hidden"
+            className="lg:hidden bg-brand-dark/98 backdrop-blur-2xl border-b border-brand-gold/20 overflow-hidden"
           >
             <div className="px-6 py-5 space-y-2.5 flex flex-col max-h-[80vh] overflow-y-auto">
-              <div className="pb-2 mb-2 border-b border-white/10 flex items-center justify-between">
-                <span className="text-xs text-brand-gold uppercase tracking-wider font-semibold">Division Navigation</span>
+              <div className="pb-3 mb-2 border-b border-white/10 flex items-center justify-between">
+                <span className="text-xs text-brand-gold uppercase tracking-wider font-semibold">
+                  Events Division
+                </span>
                 <Link
                   to="/"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-xs text-brand-ivory hover:text-brand-gold flex items-center gap-1 bg-white/5 px-2.5 py-1 rounded-full"
+                  className="text-xs text-brand-ivory hover:text-brand-gold flex items-center gap-1.5 bg-brand-gold/10 border border-brand-gold/25 px-3 py-1 rounded-full"
                 >
                   <LayoutGrid className="w-3.5 h-3.5 text-brand-gold" />
-                  <span>Return to Division Selection</span>
+                  <span>Return to Hub</span>
                 </Link>
               </div>
 
@@ -155,16 +151,17 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal: _onOpenJoinModa
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="text-sm font-medium tracking-wide text-brand-ivory hover:text-brand-gold transition-colors py-1.5 border-b border-white/5"
+                  className="text-sm font-medium tracking-wide text-brand-ivory hover:text-brand-gold transition-colors py-2 border-b border-white/5 flex items-center justify-between"
                 >
-                  {link.name}
+                  <span>{link.name}</span>
+                  <span className="text-xs text-brand-gold/50">→</span>
                 </a>
               ))}
 
-              <div className="pt-3 flex flex-col gap-2.5">
+              <div className="pt-4 flex flex-col gap-2.5">
                 <a
                   href="tel:9360701789"
-                  className="flex items-center justify-center gap-2 text-xs font-semibold text-brand-gold py-2 rounded-lg bg-white/5 border border-brand-gold/20"
+                  className="flex items-center justify-center gap-2 text-xs font-semibold text-brand-gold py-2.5 rounded-lg bg-brand-gold/10 border border-brand-gold/30 hover:bg-brand-gold/20 transition-colors"
                 >
                   <Phone className="w-3.5 h-3.5" />
                   <span>Call 9360701789</span>
@@ -172,9 +169,10 @@ export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal: _onOpenJoinModa
                 <a
                   href="#collaborate"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="w-full py-2.5 text-center rounded-full bg-gold-gradient text-brand-dark font-semibold text-xs tracking-wider uppercase shadow-glow-gold"
+                  className="w-full py-2.5 text-center rounded-full bg-gold-gradient text-brand-dark font-semibold text-xs tracking-wider uppercase shadow-glow-gold hover:brightness-110 transition-all flex items-center justify-center gap-1.5"
                 >
-                  Collaborate With Us
+                  <span>Collaborate With Us</span>
+                  <ArrowUpRight className="w-4 h-4" />
                 </a>
               </div>
             </div>
