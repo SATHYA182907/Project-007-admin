@@ -5,7 +5,7 @@ import { siteContent } from '../data/siteContent';
 import bgImg from '../assets/events/portfolio_p10_img1.jpeg';
 
 interface ContactSectionProps {
-  onOpenJoinModal: () => void;
+  onOpenJoinModal?: () => void;
 }
 
 export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenJoinModal }) => {
@@ -106,13 +106,23 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ onOpenJoinModal 
         </div>
 
         {/* Action Button */}
-        <motion.button
-          onClick={onOpenJoinModal}
-          whileHover={{ scale: 1.05 }}
-          className="px-10 py-5 rounded-full bg-gold-gradient text-brand-dark font-bold text-sm uppercase tracking-widest shadow-glow-gold transition-all"
-        >
-          Collaborate With Us Now
-        </motion.button>
+        {onOpenJoinModal ? (
+          <motion.button
+            onClick={onOpenJoinModal}
+            whileHover={{ scale: 1.05 }}
+            className="px-10 py-5 rounded-full bg-gold-gradient text-brand-dark font-bold text-sm uppercase tracking-widest shadow-glow-gold transition-all"
+          >
+            Collaborate With Us Now
+          </motion.button>
+        ) : (
+          <motion.a
+            href="#collaborate"
+            whileHover={{ scale: 1.05 }}
+            className="inline-block px-10 py-5 rounded-full bg-gold-gradient text-brand-dark font-bold text-sm uppercase tracking-widest shadow-glow-gold transition-all"
+          >
+            Collaborate With Us Now
+          </motion.a>
+        )}
       </div>
     </section>
   );

@@ -4,7 +4,7 @@ import { GraduationCap, Heart, Building2, CheckCircle2, ArrowRight, HelpCircle }
 import { collaborationData } from '../data/collaboration';
 
 interface CollaborationProps {
-  onOpenJoinModal: (role?: string) => void;
+  onOpenJoinModal?: (role?: string) => void;
 }
 
 export const Collaboration: React.FC<CollaborationProps> = ({ onOpenJoinModal }) => {
@@ -109,13 +109,23 @@ export const Collaboration: React.FC<CollaborationProps> = ({ onOpenJoinModal })
               </div>
 
               {/* Action CTA */}
-              <button
-                onClick={() => onOpenJoinModal(path.title)}
-                className="w-full py-3.5 rounded-full bg-white/5 hover:bg-gold-gradient hover:text-brand-dark text-brand-ivory font-semibold text-xs tracking-wider uppercase border border-white/15 hover:border-brand-gold transition-all duration-300 flex items-center justify-center gap-2 shadow-lg group-hover:shadow-glow-gold"
-              >
-                <span>{path.ctaText}</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
+              {onOpenJoinModal ? (
+                <button
+                  onClick={() => onOpenJoinModal(path.title)}
+                  className="w-full py-3.5 rounded-full bg-white/5 hover:bg-gold-gradient hover:text-brand-dark text-brand-ivory font-semibold text-xs tracking-wider uppercase border border-white/15 hover:border-brand-gold transition-all duration-300 flex items-center justify-center gap-2 shadow-lg group-hover:shadow-glow-gold"
+                >
+                  <span>{path.ctaText}</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+              ) : (
+                <a
+                  href="#contact"
+                  className="w-full py-3.5 rounded-full bg-white/5 hover:bg-gold-gradient hover:text-brand-dark text-brand-ivory font-semibold text-xs tracking-wider uppercase border border-white/15 hover:border-brand-gold transition-all duration-300 flex items-center justify-center gap-2 shadow-lg group-hover:shadow-glow-gold"
+                >
+                  <span>{path.ctaText}</span>
+                  <ArrowRight className="w-4 h-4" />
+                </a>
+              )}
             </motion.div>
           ))}
         </div>

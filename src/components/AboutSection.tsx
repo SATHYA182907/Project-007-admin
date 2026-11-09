@@ -1,107 +1,204 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Brain, Sparkles, Target, Zap, Palette, Heart, Smile, Users } from 'lucide-react';
-import { siteContent } from '../data/siteContent';
-import aboutImg from '../assets/events/portfolio_p10_img4.jpeg'; // Brain Gym & activity photo
+import {
+  Brain,
+  Puzzle,
+  Hourglass,
+  Focus,
+  Palette,
+  HeartHandshake,
+  Smile,
+  Users,
+  Sparkles,
+} from 'lucide-react';
+
+import aboutImg1 from '../assets/events/portfolio_p10_img4.jpeg'; // Brain gym & cognitive workshop
+import aboutImg2 from '../assets/events/portfolio_p12_img7.jpeg'; // Intergenerational community
+import aboutImg3 from '../assets/events/portfolio_p13_img5.jpeg'; // Nana Nani elderly bonding
 
 export const AboutSection: React.FC = () => {
-  const { about } = siteContent;
-
-  const iconMap: Record<string, React.ReactNode> = {
-    Brain: <Brain className="w-5 h-5 text-brand-gold" />,
-    Sparkles: <Sparkles className="w-5 h-5 text-brand-gold" />,
-    Target: <Target className="w-5 h-5 text-brand-gold" />,
-    Zap: <Zap className="w-5 h-5 text-brand-gold" />,
-    Palette: <Palette className="w-5 h-5 text-brand-gold" />,
-    Heart: <Heart className="w-5 h-5 text-brand-gold" />,
-    Smile: <Smile className="w-5 h-5 text-brand-gold" />
-  };
+  const coreCompetencies = [
+    {
+      icon: <Brain className="w-5 h-5 text-brand-gold" />,
+      title: 'Cognitive & Problem-Solving',
+      description: 'Physical puzzles and tactical brain games that awaken lateral thinking without screens.',
+    },
+    {
+      icon: <Puzzle className="w-5 h-5 text-brand-gold" />,
+      title: 'Memory Agility',
+      description: 'Neuro-gym drills and recall challenges that sharpen short- and long-term memory retrieval.',
+    },
+    {
+      icon: <Hourglass className="w-5 h-5 text-brand-gold" />,
+      title: 'Patience & Stillness',
+      description: 'Countering the instant-gratification loop with mindful offline crafts and deliberate activities.',
+    },
+    {
+      icon: <Focus className="w-5 h-5 text-brand-gold" />,
+      title: 'Concentration & Focus',
+      description: 'Building sustained attention spans through tactile manipulation and deep offline involvement.',
+    },
+    {
+      icon: <Palette className="w-5 h-5 text-brand-gold" />,
+      title: 'Boundless Creativity',
+      description: 'Hands-on art, drawing, performing, and impromptu expression free from digital filters.',
+    },
+    {
+      icon: <HeartHandshake className="w-5 h-5 text-brand-gold" />,
+      title: 'Emotional Balance',
+      description: 'Restoring real interpersonal warmth, empathy, and emotional resilience through human fellowship.',
+    },
+    {
+      icon: <Smile className="w-5 h-5 text-brand-gold" />,
+      title: 'Healthy, Stress-Free Lifestyles',
+      description: 'Gentle physical movement, laughter, and community bonding that naturally melts stress away.',
+    },
+  ];
 
   return (
     <section id="about" className="relative py-24 sm:py-32 bg-brand-darker border-t border-white/5 overflow-hidden">
-      {/* Background radial highlight */}
-      <div className="absolute top-1/3 right-0 w-96 h-96 bg-brand-lavender/10 rounded-full blur-[160px] pointer-events-none" />
+      {/* Background radial ambient lights */}
+      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-brand-lavender/10 rounded-full blur-[160px] pointer-events-none" />
+      <div className="absolute bottom-1/4 -left-20 w-[450px] h-[450px] bg-brand-gold/10 rounded-full blur-[150px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Left Column: Statement & Information Card */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16 sm:mb-20">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 15 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="lg:col-span-6 space-y-6"
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-card border border-brand-gold/30 mb-4"
           >
-            <span className="text-xs font-semibold tracking-widest text-brand-gold uppercase block">
-              Who We Are
+            <Sparkles className="w-3.5 h-3.5 text-brand-gold" />
+            <span className="text-xs font-semibold tracking-widest text-brand-gold uppercase">
+              About Offscreen Hub
             </span>
-            <h2 className="text-3xl sm:text-5xl font-serif font-bold text-brand-ivory leading-tight">
-              {about.heading}
-            </h2>
-            <p className="text-base sm:text-lg text-brand-mutedIvory font-light leading-relaxed">
-              {about.statement}
-            </p>
-            <p className="text-sm sm:text-base text-brand-mutedIvory/80 leading-relaxed">
-              {about.subtext}
-            </p>
+          </motion.div>
 
-            {/* Intergenerational Participation Card */}
-            <div className="p-6 rounded-2xl glass-card border border-brand-gold/20 flex items-start gap-4 shadow-xl">
-              <div className="w-12 h-12 rounded-full bg-brand-gold/15 border border-brand-gold/30 flex items-center justify-center shrink-0">
-                <Users className="w-6 h-6 text-brand-gold" />
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.1 }}
+            className="text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-brand-ivory leading-tight mb-6"
+          >
+            A Platform for Living Fully, <br />
+            <span className="text-gradient-gold">Beyond the Glass.</span>
+          </motion.h2>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.2 }}
+            className="text-base sm:text-lg text-brand-mutedIvory leading-relaxed font-light"
+          >
+            Offscreen Entertainment Hub (OSH) is a unique platform created for all age groups, blending fun, learning and mental wellness through games, workshops and brain gym challenges in a screen-free environment.
+          </motion.p>
+        </div>
+
+        {/* Editorial Two-Column Showcase */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center mb-20">
+          {/* Left Column: Authentic Photography Collage */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-6 grid grid-cols-2 gap-4"
+          >
+            <div className="space-y-4">
+              <div className="rounded-3xl overflow-hidden aspect-[3/4] border border-white/10 shadow-2xl relative group">
+                <img
+                  src={aboutImg1}
+                  alt="Cognitive Brain Gym Drill"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
+                  <span className="text-xs font-semibold text-brand-ivory">Cognitive Brain Drills</span>
+                </div>
               </div>
-              <div>
-                <h4 className="text-base font-serif font-semibold text-brand-ivory mb-1">
-                  All Generations Together
-                </h4>
-                <p className="text-xs sm:text-sm text-brand-mutedIvory">
-                  From toddlers to senior citizens, OSH events build bonds where families and communities participate side-by-side.
+
+              <div className="p-6 rounded-2xl glass-card border border-brand-gold/30 bg-brand-card/80">
+                <div className="flex items-center gap-3 mb-2">
+                  <Users className="w-5 h-5 text-brand-gold" />
+                  <span className="text-xs font-serif font-semibold text-brand-ivory uppercase tracking-wider">
+                    All Generations
+                  </span>
+                </div>
+                <p className="text-xs text-brand-mutedIvory leading-relaxed">
+                  From playful toddlers to cherished senior citizens, OSH unites generations in shared laughter and presence.
                 </p>
+              </div>
+            </div>
+
+            <div className="space-y-4 pt-8">
+              <div className="rounded-3xl overflow-hidden aspect-square border border-white/10 shadow-2xl relative group">
+                <img
+                  src={aboutImg2}
+                  alt="Senior Sangamam Fellowship"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
+                  <span className="text-xs font-semibold text-brand-ivory">Elders & Senior Sangamam</span>
+                </div>
+              </div>
+
+              <div className="rounded-3xl overflow-hidden aspect-[4/5] border border-white/10 shadow-2xl relative group">
+                <img
+                  src={aboutImg3}
+                  alt="Intergenerational Joy"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
+                  <span className="text-xs font-semibold text-brand-ivory">Nana Nani Fellowship</span>
+                </div>
               </div>
             </div>
           </motion.div>
 
-          {/* Right Column: Skill Development Chips & Image */}
+          {/* Right Column: 7 Pillar Competencies */}
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="lg:col-span-6 space-y-6"
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-6 space-y-4"
           >
-            <div className="relative rounded-2xl overflow-hidden glass-card border border-white/10 p-2 shadow-2xl">
-              <img
-                src={aboutImg}
-                alt="Offscreen Hub Activities"
-                className="w-full h-56 sm:h-64 object-cover rounded-xl"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent rounded-xl" />
-              <span className="absolute bottom-4 left-6 text-xs font-semibold text-brand-gold uppercase tracking-widest">
-                Brain Gym & Active Learning
+            <div className="mb-6">
+              <span className="text-xs font-mono uppercase tracking-widest text-brand-gold block mb-2">
+                What We Nurture
               </span>
+              <h3 className="text-2xl sm:text-3xl font-serif font-bold text-brand-ivory">
+                Seven Pillars of Human Agility & Wellness
+              </h3>
             </div>
 
-            {/* Skill Cards Grid */}
             <div className="space-y-3">
-              <h3 className="text-xs font-semibold text-brand-gold uppercase tracking-widest mb-3">
-                Core Cognitive & Emotional Development Focus
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {about.skills.map((skill, index) => (
-                  <motion.div
-                    key={index}
-                    whileHover={{ scale: 1.02 }}
-                    className="p-4 rounded-xl glass-card border border-white/5 hover:border-brand-gold/30 flex items-center gap-3 transition-colors"
-                  >
-                    <div className="p-2 rounded-lg bg-white/5 border border-white/10">
-                      {iconMap[skill.icon]}
-                    </div>
-                    <span className="text-xs sm:text-sm font-medium text-brand-ivory">
-                      {skill.name}
-                    </span>
-                  </motion.div>
-                ))}
-              </div>
+              {coreCompetencies.map((comp, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.4, delay: index * 0.06 }}
+                  className="p-4 rounded-xl glass-card border border-white/5 hover:border-brand-gold/40 hover:bg-white/[0.04] transition-all flex items-start gap-3.5 group"
+                >
+                  <div className="p-2 rounded-lg bg-white/5 border border-white/10 group-hover:border-brand-gold/40 shrink-0">
+                    {comp.icon}
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-semibold text-brand-ivory group-hover:text-brand-gold transition-colors mb-0.5">
+                      {comp.title}
+                    </h4>
+                    <p className="text-xs text-brand-mutedIvory leading-relaxed font-light">
+                      {comp.description}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
         </div>

@@ -1,8 +1,10 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthProvider } from './hooks/useAuth';
 
-// Public Portfolio Website
+// Division Portals
+import { EntryHubPage } from './pages/EntryHubPage';
 import { PortfolioPage } from './pages/PortfolioPage';
+import { EducationPage } from './pages/EducationPage';
 
 // Admin Portal Pages & Components
 import { AdminLoginPage } from './pages/admin/AdminLoginPage';
@@ -23,8 +25,14 @@ export function App() {
     <AuthProvider>
       <BrowserRouter>
         <Routes>
-          {/* Main Website Route */}
-          <Route path="/" element={<PortfolioPage />} />
+          {/* 1. New Website Entry Experience: Brand & Division Selection */}
+          <Route path="/" element={<EntryHubPage />} />
+
+          {/* 2. Events Division: Complete Public Events Portal */}
+          <Route path="/events" element={<PortfolioPage />} />
+
+          {/* 3. Education Division: Dedicated Coming Soon Portal */}
+          <Route path="/education" element={<EducationPage />} />
 
           {/* Admin Authentication */}
           <Route path="/admin/login" element={<AdminLoginPage />} />
@@ -45,7 +53,7 @@ export function App() {
             <Route path="*" element={<Navigate to="/admin/dashboard" replace />} />
           </Route>
 
-          {/* Catch-all redirect to home */}
+          {/* Catch-all redirect to Division Selection */}
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </BrowserRouter>

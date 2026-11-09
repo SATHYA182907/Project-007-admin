@@ -1,5 +1,6 @@
 import React from 'react';
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { Phone, Mail, MapPin, Shield, LayoutGrid, BookOpen, Calendar } from 'lucide-react';
 import logoImg from '../assets/logo/offscreen_logo.jpg';
 import { siteContent } from '../data/siteContent';
 
@@ -8,12 +9,14 @@ export const Footer: React.FC = () => {
 
   const navLinks = [
     { name: 'Home', href: '#home' },
-    { name: 'Our Events', href: '#events' },
     { name: 'About Us', href: '#about' },
-    { name: 'Philosophy', href: '#philosophy' },
+    { name: 'Our Journey', href: '#explore-journey' },
+    { name: 'Our Events', href: '#events' },
+    { name: 'Awards', href: '#awards' },
+    { name: 'Our Impact', href: '#impact' },
+    { name: 'Sponsors & Partners', href: '#sponsors' },
     { name: 'Collaborate', href: '#collaborate' },
-    { name: 'Join Us', href: '#join' },
-    { name: 'Why Choose Us', href: '#why-us' },
+    { name: 'Join Our Team', href: '#join-team' },
     { name: 'Contact', href: '#contact' },
   ];
 
@@ -32,24 +35,49 @@ export const Footer: React.FC = () => {
                   OFFSCREEN HUB
                 </span>
                 <span className="text-[10px] tracking-widest text-brand-gold uppercase">
-                  Entertainment Hub
+                  Events Division
                 </span>
               </div>
             </div>
-            
+
             <p className="text-sm font-serif italic text-brand-gold">
-              “Beyond the Screen, Into the World”
+              “Beyond the Screen, Into the Real World.”
             </p>
 
             <p className="text-xs text-brand-mutedIvory font-light leading-relaxed max-w-sm">
-              Creating meaningful offline experiences that inspire creativity, confidence, connection, learning, and well-being for children, families, schools, and communities.
+              Creating meaningful offline experiences that inspire creativity, confidence, intellectual learning and well-being.
             </p>
+
+            {/* Division Switching Links */}
+            <div className="pt-2 flex flex-wrap gap-2 text-xs">
+              <Link
+                to="/"
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-brand-ivory transition-colors"
+              >
+                <LayoutGrid className="w-3.5 h-3.5 text-brand-gold" />
+                <span>Division Hub</span>
+              </Link>
+              <Link
+                to="/education"
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-brand-ivory transition-colors"
+              >
+                <BookOpen className="w-3.5 h-3.5 text-brand-lavender" />
+                <span>Education Division</span>
+              </Link>
+              <Link
+                to="/admin"
+                className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 hover:bg-white/10 border border-white/10 text-brand-ivory transition-colors"
+              >
+                <Shield className="w-3.5 h-3.5 text-brand-gold" />
+                <span>Admin Portal</span>
+              </Link>
+            </div>
           </div>
 
           {/* Quick Navigation Links */}
           <div className="md:col-span-4 space-y-3">
             <h4 className="text-xs font-semibold text-brand-gold uppercase tracking-widest mb-4">
-              Navigation
+              Events Navigation
             </h4>
             <div className="grid grid-cols-2 gap-2 text-xs">
               {navLinks.map((link) => (
@@ -90,7 +118,7 @@ export const Footer: React.FC = () => {
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-brand-mutedIvory/70">
           <p>© {new Date().getFullYear()} Offscreen Hub. All rights reserved.</p>
           <p className="font-serif italic text-brand-gold/80">
-            Let’s Build Screen-Free Time Together.
+            Beyond the Screen, Into the Real World.
           </p>
         </div>
       </div>

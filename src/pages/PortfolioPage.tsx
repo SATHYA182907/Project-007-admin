@@ -3,47 +3,34 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 import { Navbar } from '../components/Navbar';
 import { Hero } from '../components/Hero';
-import { PhilosophySection } from '../components/PhilosophySection';
 import { AboutSection } from '../components/AboutSection';
-import { MissionVision } from '../components/MissionVision';
-import { StatsSection } from '../components/StatsSection';
+import { ExploreJourney } from '../components/ExploreJourney';
 import { EventsPortfolio } from '../components/EventsPortfolio';
-import { EventModal } from '../components/EventModal';
-import { FeaturedStories } from '../components/FeaturedStories';
+import { KomagalAwardsSection } from '../components/KomagalAwardsSection';
+import { StatsSection } from '../components/StatsSection';
+import { PhilosophySection } from '../components/PhilosophySection';
 import { GallerySection } from '../components/GallerySection';
-import { Differentiation } from '../components/Differentiation';
-import { CommunityNetwork } from '../components/CommunityNetwork';
+import { SponsorsSection } from '../components/SponsorsSection';
 import { Collaboration } from '../components/Collaboration';
-import { JoinSection } from '../components/JoinSection';
+import { JoinTeamSection } from '../components/JoinTeamSection';
 import { WhyChooseUs } from '../components/WhyChooseUs';
 import { ContactSection } from '../components/ContactSection';
 import { Footer } from '../components/Footer';
+import { EventModal } from '../components/EventModal';
 
 import type { EventItem } from '../types';
 import logoImg from '../assets/logo/offscreen_logo.jpg';
 
 export const PortfolioPage: React.FC = () => {
   const [selectedEvent, setSelectedEvent] = useState<EventItem | null>(null);
-  const [isJoinModalOpen, setIsJoinModalOpen] = useState(false);
-  const [preselectedRole, setPreselectedRole] = useState<string | undefined>(undefined);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 1200);
+    }, 800);
     return () => clearTimeout(timer);
   }, []);
-
-  const handleOpenJoinModal = (role?: string) => {
-    setPreselectedRole(role);
-    setIsJoinModalOpen(true);
-  };
-
-  const handleCloseJoinModal = () => {
-    setIsJoinModalOpen(false);
-    setPreselectedRole(undefined);
-  };
 
   return (
     <div className="min-h-screen bg-brand-dark text-brand-ivory font-sans selection:bg-brand-gold selection:text-brand-dark overflow-x-hidden">
@@ -53,13 +40,13 @@ export const PortfolioPage: React.FC = () => {
           <motion.div
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
             className="fixed inset-0 z-50 bg-brand-dark flex flex-col items-center justify-center text-center p-4"
           >
             <motion.div
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.4 }}
               className="w-20 h-20 rounded-full overflow-hidden border-2 border-brand-gold shadow-glow-gold mb-6"
             >
               <img src={logoImg} alt="Offscreen Hub" className="w-full h-full object-cover" />
@@ -68,7 +55,7 @@ export const PortfolioPage: React.FC = () => {
             <motion.h2
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
+              transition={{ delay: 0.15 }}
               className="text-2xl font-serif font-bold text-brand-ivory tracking-widest uppercase mb-2"
             >
               OFFSCREEN HUB
@@ -77,10 +64,10 @@ export const PortfolioPage: React.FC = () => {
             <motion.p
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.4 }}
+              transition={{ delay: 0.3 }}
               className="text-xs font-serif italic text-brand-gold tracking-wider"
             >
-              Beyond the Screen, Into the World
+              Beyond the Screen, Into the Real World
             </motion.p>
           </motion.div>
         )}
@@ -88,63 +75,55 @@ export const PortfolioPage: React.FC = () => {
 
       {!isLoading && (
         <>
-          {/* Sticky Navbar */}
-          <Navbar onOpenJoinModal={() => handleOpenJoinModal()} />
+          {/* Sticky Responsive Navbar */}
+          <Navbar />
 
-          {/* Main Storytelling Page Layout */}
+          {/* Main Storytelling Page Layout — Strict Sequence */}
           <main>
-            {/* 01: Hero Slideshow */}
+            {/* 01: Hero Section */}
             <Hero />
 
-            {/* 02: Philosophy — What Childhood Are We Building? */}
-            <PhilosophySection />
-
-            {/* 03: About Us & Skill Development */}
+            {/* 02: About Us (Repositioned ABOVE Explore Our Journey) */}
             <AboutSection />
 
-            {/* 04: Mission & Vision */}
-            <MissionVision />
+            {/* 03: Explore Our Journey (Immediately AFTER About Us) */}
+            <ExploreJourney />
 
-            {/* 05: Impact Statistics */}
-            <StatsSection />
-
-            {/* 06: Complete 17-Event Portfolio Grid */}
+            {/* 04 & 05: Event Categories & Complete 21-Event Portfolio */}
             <EventsPortfolio onSelectEvent={(evt) => setSelectedEvent(evt)} />
 
-            {/* 07: Featured Stories (Mom & Me & Komagal Awards) */}
-            <FeaturedStories />
+            {/* 06: Awards & Recognition (Dedicated Komagal Awards Feature) */}
+            <KomagalAwardsSection />
 
-            {/* 08: Gallery — Moments Beyond the Screen */}
+            {/* 07: Our Screen-Free Impact (Counters & Standards) */}
+            <StatsSection />
+
+            {/* 08: Screen-Free Philosophy */}
+            <PhilosophySection />
+
+            {/* 09: Gallery (Categorized Masonry with Nana Nani Events) */}
             <GallerySection />
 
-            {/* 09: What Makes Offscreen Hub Different (7 Principles) */}
-            <Differentiation />
+            {/* 10: Sponsors & Partners (Dedicated 22+ Verified Partners) */}
+            <SponsorsSection />
 
-            {/* 10: A Community, Not Just Workshops (Orbiting Node Graph) */}
-            <CommunityNetwork />
+            {/* 11: Collaborate With Us */}
+            <Collaboration />
 
-            {/* 11: Why Collaborate With Us (3 Paths) */}
-            <Collaboration onOpenJoinModal={(role) => handleOpenJoinModal(role)} />
+            {/* 12: Join Our Team (Application Form with CV Upload) */}
+            <JoinTeamSection />
 
-            {/* 12: Join the Movement (3 Tracks & Form) */}
-            <JoinSection
-              isOpenModal={isJoinModalOpen}
-              preselectedRole={preselectedRole}
-              onCloseModal={handleCloseJoinModal}
-              onOpenModal={(role) => handleOpenJoinModal(role)}
-            />
-
-            {/* 13: Why Choose Us (7 Key Advantages) */}
+            {/* 13: Why Choose Us */}
             <WhyChooseUs />
 
-            {/* 14: Contact & Final CTA */}
-            <ContactSection onOpenJoinModal={() => handleOpenJoinModal()} />
+            {/* 14: Contact & Inquiries */}
+            <ContactSection />
           </main>
 
           {/* 15: Footer */}
           <Footer />
 
-          {/* Event Detail Modal */}
+          {/* Interactive Event Detail Modal */}
           <EventModal
             event={selectedEvent}
             onClose={() => setSelectedEvent(null)}
@@ -154,4 +133,3 @@ export const PortfolioPage: React.FC = () => {
     </div>
   );
 };
-
