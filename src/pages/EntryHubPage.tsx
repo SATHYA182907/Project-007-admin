@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Calendar, Compass, ArrowRight, Sparkles, Shield, Brain } from 'lucide-react';
+import { Calendar, Compass, ArrowRight, Sparkles, Brain } from 'lucide-react';
 import logoImg from '../assets/logo/offscreen_logo.jpg';
 
 // Authentic event preview photos for the Events card
@@ -50,18 +50,6 @@ export const EntryHubPage: React.FC = () => {
               Digital Platform Ecosystem
             </span>
           </div>
-        </div>
-
-        {/* Quick Portal Switcher / Admin Anchor */}
-        <div className="flex items-center gap-2.5">
-          <Link
-            to="/admin"
-            className="text-[11px] font-medium text-[#4B5563] hover:text-[#0D0D0F] px-3 py-1 rounded-full bg-white/80 hover:bg-white border border-[#E5E7EB] transition-all shadow-xs flex items-center gap-1.5"
-            title="Portal Administration"
-          >
-            <Shield className="w-3 h-3 text-[#967C29]" />
-            <span>Admin Portal</span>
-          </Link>
         </div>
       </header>
 
@@ -265,9 +253,6 @@ export const EntryHubPage: React.FC = () => {
           </Link>
           <Link to="/lifeskills" className="hover:text-[#111827] transition-colors">
             Life Skills Portal
-          </Link>
-          <Link to="/admin" className="hover:text-[#111827] transition-colors">
-            Admin Portal
           </Link>
         </div>
       </footer>
