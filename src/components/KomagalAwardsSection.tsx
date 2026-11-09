@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Award, Trophy, Users, Heart, Sparkles, Building2, MapPin, Clock } from 'lucide-react';
+import { Award, Trophy, Users, Building2, MapPin, Clock } from 'lucide-react';
 
 import stageImg from '../assets/events/portfolio_p13_img1.jpeg'; // Stage & ceremony
 import trophyImg from '../assets/events/portfolio_p13_img2.jpeg'; // Trophies & citations

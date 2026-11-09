@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Maximize2, X, ZoomIn, ZoomOut, Image as ImageIcon, Sparkles, Filter } from 'lucide-react';
+import { Maximize2, X, ZoomIn, ZoomOut, Image as ImageIcon } from 'lucide-react';
 
 import p10_1 from '../assets/events/portfolio_p10_img1.jpeg';
 import p10_2 from '../assets/events/portfolio_p10_img2.jpeg';
@@ -83,6 +83,7 @@ export const GallerySection: React.FC = () => {
     { id: 'g-comm-1', src: p11_2, title: 'Vedanta Community Projects', category: 'Community Activities', caption: 'Five focused wellness and social sessions for senior living residents.' },
     { id: 'g-comm-2', src: p12_5, title: 'Alveal Mall Brain Gym Workshops', category: 'Community Activities', caption: 'Shoppers and young families solving tactile cognitive puzzles.' },
     { id: 'g-comm-3', src: p12_3, title: 'Pet Ramp Walk @ Kalapatti', category: 'Community Activities', caption: 'Human-animal emotional bonding and outdoor fun at Bow Bow Bliss.' },
+    { id: 'g-comm-4', src: p12_4, title: 'Public Agility Challenges', category: 'Community Activities', caption: 'Pedestrian brain gym trials and street cognitive challenges along Racecourse.' },
     // Fitness Events
     { id: 'g-fit-1', src: p14_1, title: 'Komagal Marathon at Racecourse', category: 'Fitness Events', caption: '1,800 runners running in early morning dawn to promote active offline health.' },
     { id: 'g-fit-2', src: p11_1, title: 'Women’s Badminton Tournament', category: 'Fitness Events', caption: 'Homemakers and professionals competing on the court with vitality.' },

@@ -5,10 +5,7 @@ import {
   CalendarCheck,
   Building2,
   Clock,
-  Sparkles,
-  HelpCircle,
   ShieldCheck,
-  CheckCircle,
 } from 'lucide-react';
 
 export const StatsSection: React.FC = () => {

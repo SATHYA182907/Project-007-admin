@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Calendar, BookOpen, ArrowRight, Sparkles, Shield, Compass, Heart, Users } from 'lucide-react';
+import { Calendar, BookOpen, ArrowRight, Sparkles, Shield, Compass } from 'lucide-react';
 import logoImg from '../assets/logo/offscreen_logo.jpg';
 
 // Authentic event preview photos for the Events card
@@ -11,8 +11,6 @@ import p12_1 from '../assets/events/portfolio_p12_img1.jpeg'; // Mom & Me
 import p13_1 from '../assets/events/portfolio_p13_img1.jpeg'; // Komagal Awards
 
 export const EntryHubPage: React.FC = () => {
-  const [activeCard, setActiveCard] = useState<'events' | 'education' | null>(null);
-
   const eventPreviewImages = [
     { src: p11_4, title: 'Diwali Carnival', stat: '2,000+ Participants' },
     { src: p12_1, title: 'Mom & Me Ramp Walk', stat: 'Inclusive Celebration' },
@@ -117,8 +115,6 @@ export const EntryHubPage: React.FC = () => {
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.25 }}
-            onMouseEnter={() => setActiveCard('events')}
-            onMouseLeave={() => setActiveCard(null)}
             className="group relative rounded-3xl p-8 sm:p-10 bg-white/85 backdrop-blur-xl border border-white/90 shadow-[0_20px_50px_rgba(20,24,35,0.06)] hover:shadow-[0_30px_70px_rgba(212,175,55,0.18)] hover:-translate-y-1.5 transition-all duration-500 flex flex-col justify-between overflow-hidden"
           >
             {/* Soft Ambient Card Glow on Hover */}
@@ -182,8 +178,6 @@ export const EntryHubPage: React.FC = () => {
             initial={{ opacity: 0, x: 30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7, delay: 0.35 }}
-            onMouseEnter={() => setActiveCard('education')}
-            onMouseLeave={() => setActiveCard(null)}
             className="group relative rounded-3xl p-8 sm:p-10 bg-white/85 backdrop-blur-xl border border-white/90 shadow-[0_20px_50px_rgba(20,24,35,0.06)] hover:shadow-[0_30px_70px_rgba(138,128,184,0.18)] hover:-translate-y-1.5 transition-all duration-500 flex flex-col justify-between overflow-hidden"
           >
             {/* Soft Ambient Card Glow on Hover */}

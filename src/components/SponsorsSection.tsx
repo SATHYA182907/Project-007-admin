@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Building2, Handshake, ArrowUpRight, Sparkles, Shield, Heart } from 'lucide-react';
+import { Building2, Handshake, ArrowUpRight } from 'lucide-react';
 
 interface Partner {
   name: string;

@@ -7,9 +7,6 @@ import {
   AlertCircle,
   FileText,
   Send,
-  Sparkles,
-  Heart,
-  Briefcase,
   X,
 } from 'lucide-react';
 import { dbService } from '../services/db';

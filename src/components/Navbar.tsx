@@ -8,7 +8,7 @@ interface NavbarProps {
   onOpenJoinModal?: () => void;
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal }) => {
+export const Navbar: React.FC<NavbarProps> = ({ onOpenJoinModal: _onOpenJoinModal }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 

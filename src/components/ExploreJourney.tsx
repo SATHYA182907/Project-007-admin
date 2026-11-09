@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Sparkles, Calendar, MapPin, Users, ChevronRight, Award, Compass } from 'lucide-react';
+import { Sparkles, Calendar, MapPin, Users, ChevronRight, Compass } from 'lucide-react';
 
 import jWalkathon from '../assets/events/portfolio_p10_img1.jpeg';
 import jDiwali from '../assets/events/portfolio_p11_img4.jpeg';

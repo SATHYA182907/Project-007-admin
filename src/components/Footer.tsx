@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Phone, Mail, MapPin, Shield, LayoutGrid, BookOpen, Calendar } from 'lucide-react';
+import { Phone, Mail, MapPin, Shield, LayoutGrid, BookOpen } from 'lucide-react';
 import logoImg from '../assets/logo/offscreen_logo.jpg';
 import { siteContent } from '../data/siteContent';
 

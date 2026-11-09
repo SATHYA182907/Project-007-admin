@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Users, ArrowUpRight, Sparkles, Building2, Handshake, Clock } from 'lucide-react';
+import { MapPin, Users, ArrowUpRight, Building2, Handshake, Clock } from 'lucide-react';
 import type { EventItem } from '../types';
 
 interface EventCardProps {
